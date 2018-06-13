@@ -1,7 +1,16 @@
+/* stylelint-disable */
+
 import React, { Component } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import PropTypes from 'prop-types'
 import './App.css'
 import Checkout from './components/CheckoutArea/Checkout'
+import Overlay from './components/ui/Overlay'
+import Container from './components/ui/Container'
+
+const propTypes = {}
+
+const defaultProps = {}
 
 export default class App extends Component {
 	constructor(props) {
@@ -24,15 +33,19 @@ export default class App extends Component {
 		let container
 
 		if (this.state.mounted) {
-			overlay = <div />
+			overlay = (
+				<Overlay image="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/jj-2.jpg" />
+			)
 			container = (
-				<Checkout
-					duration={this.state.duration}
-					discount={this.state.discount}
-					tax={this.state.tax}
-					price={this.state.price}
-					onSubmit={this.handleSubmit}
-				/>
+				<Container>
+					<Checkout
+						duration={this.state.duration}
+						discount={this.state.discount}
+						tax={this.state.tax}
+						price={this.state.price}
+						onSubmit={this.handleSubmit}
+					/>
+				</Container>
 			)
 		}
 
@@ -56,3 +69,6 @@ export default class App extends Component {
 		)
 	}
 }
+
+App.propTypes = propTypes
+App.defaultProps = defaultProps
