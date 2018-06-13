@@ -10,10 +10,6 @@ import Container from './components/ui/Container'
 import Header from './components/ui/Header'
 import ImagePreview from './components/ImagePreview/ImagePreview'
 
-const propTypes = {}
-
-const defaultProps = {}
-
 export default class App extends Component {
 	constructor(props) {
 		super(props)
@@ -83,6 +79,3 @@ export default class App extends Component {
 		)
 	}
 }
-
-App.propTypes = propTypes
-App.defaultProps = defaultProps
