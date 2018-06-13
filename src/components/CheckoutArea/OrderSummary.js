@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { pluralize } from '../../util/util'
 
 const propTypes = {
 	duration: PropTypes.string,
@@ -13,12 +14,6 @@ const defaultProps = {
 	price: 0,
 	discount: 0,
 	tax: 0,
-}
-
-function pluralize(number) {
-	if (number !== 1) {
-		return 's'
-	}
 }
 
 export default function OrderSummary(props) {

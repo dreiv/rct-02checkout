@@ -7,6 +7,8 @@ import './App.css'
 import Checkout from './components/CheckoutArea/Checkout'
 import Overlay from './components/ui/Overlay'
 import Container from './components/ui/Container'
+import Header from './components/ui/Header'
+import ImagePreview from './components/ImagePreview/ImagePreview'
 
 const propTypes = {}
 
@@ -17,6 +19,7 @@ export default class App extends Component {
 		super(props)
 		this.state = {
 			mounted: false,
+			people: 1,
 			price: 320.0,
 			tax: 20,
 			duration: 5,
@@ -26,6 +29,10 @@ export default class App extends Component {
 
 	componentDidMount() {
 		;(() => this.setState({ mounted: true }))()
+	}
+
+	handleChange = evt => {
+		this.setState({ duration: +evt.target.value })
 	}
 
 	render() {
@@ -38,6 +45,12 @@ export default class App extends Component {
 			)
 			container = (
 				<Container>
+					<ImagePreview
+						price={this.state.price}
+						duration={this.state.duration}
+						people={this.state.people}
+						image="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/jj-2.jpg"
+					/>
 					<Checkout
 						duration={this.state.duration}
 						discount={this.state.discount}
@@ -51,6 +64,7 @@ export default class App extends Component {
 
 		return (
 			<div className="App">
+				<Header onChange={this.handleChange} />
 				<ReactCSSTransitionGroup
 					transitionName="overlay"
 					transitionEnterTimeout={500}
