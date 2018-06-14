@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import OrderSummary from './OrderSummary'
-import PaymentForm from './PaymentForm'
+import { PaymentForm } from './PaymentFormComponents'
 
 const propTypes = {
 	duration: PropTypes.string,

@@ -25,8 +25,8 @@ export default function OrderSummary(props) {
 	const total = subTotal + tax
 
 	return (
-		<div>
-			<div className="title">Order Summary</div>
+		<div className="OrderSummary">
+			<div className="Title">Order Summary</div>
 			<table>
 				<tbody>
 					<tr>

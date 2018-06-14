@@ -26,6 +26,11 @@ export default class App extends Component {
 		;(() => this.setState({ mounted: true }))()
 	}
 
+	handleSubmit = evt => {
+		console.log('handle ajax submission here')
+		evt.preventDefault()
+	}
+
 	handleChange = evt => {
 		this.setState({ duration: +evt.target.value })
 	}
