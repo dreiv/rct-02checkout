@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import PropTypes from 'prop-types'
 import './App.css'
 import Checkout from './components/CheckoutArea/Checkout'
 import Overlay from './components/ui/Overlay'
