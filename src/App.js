@@ -2,12 +2,57 @@
 
 import React, { Component } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import PropTypes from 'prop-types'
 import './App.css'
 import Checkout from './components/CheckoutArea/Checkout'
-import Overlay from './components/ui/Overlay'
-import Container from './components/ui/Container'
-import Header from './components/ui/Header'
 import ImagePreview from './components/ImagePreview/ImagePreview'
+
+function Container(props) {
+	return <div className="Container">{props.children}</div>
+}
+
+Container.propTypes = {
+	children: PropTypes.node,
+}
+Container.defaultProps = {
+	children: null,
+}
+
+function Header(props) {
+	return (
+		<header>
+			<input
+				onChange={props.onChange}
+				type="range"
+				max="100"
+				min="1"
+				step="1"
+			/>
+		</header>
+	)
+}
+
+Header.propTypes = {
+	onChange: PropTypes.func,
+}
+Header.defaultProps = {
+	onChange: () => {},
+}
+
+function Overlay(props) {
+	return (
+		<div className="Overlay" style={{ backgroundImage: `url(${props.image})` }}>
+			Something
+		</div>
+	)
+}
+
+Overlay.propTypes = {
+	image: PropTypes.string,
+}
+Overlay.defaultProps = {
+	image: '',
+}
 
 export default class App extends Component {
 	constructor(props) {
